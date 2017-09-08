@@ -16,10 +16,10 @@ import java.util.Map;
 public class testController {
 
     @RequestMapping("/test.do")
-    @ResponseBody
-    public Map test(Model model){
+    public String test(Model model){
         Map m = new HashedMap();
         m.put("test","asdasd");
-      return m;
+        model.addAttribute("m",m);
+      return "index";
     }
 }
