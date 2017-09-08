@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p"
+	   xmlns:context="http://www.springframework.org/schema/context" xmlns:tx="http://www.springframework.org/schema/tx"
+	   xmlns:mvc="http://www.springframework.org/schema/mvc" xmlns:aop="http://www.springframework.org/schema/aop"
+	   xmlns:util="http://www.springframework.org/schema/util"
+	   xsi:schemaLocation="
+		http://www.springframework.org/schema/beans
+		http://www.springframework.org/schema/beans/spring-beans-4.2.xsd
+		http://www.springframework.org/schema/util
+		http://www.springframework.org/schema/util/spring-util-4.2.xsd
+		http://www.springframework.org/schema/context
+		http://www.springframework.org/schema/context/spring-context-4.1.xsd
+		http://www.springframework.org/schema/tx
+		http://www.springframework.org/schema/tx/spring-tx-4.2.xsd
+		http://www.springframework.org/schema/mvc
+		http://www.springframework.org/schema/mvc/spring-mvc-4.2.xsd">
+
+    <bean class="org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor"/>
+	<context:component-scan base-package="com.rafo.mjagent" />
+	<context:annotation-config />
+	<mvc:annotation-driven/>
+	<!--<context:property-placeholder location="classpath:config.properties" file-encoding="UTF-8" />-->
+	<bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+		<property name="location" value="classpath:jdbc.properties" />
+	</bean>
+
+
+	<!--<bean id="gameDataSource" class="org.apache.commons.dbcp2.BasicDataSource">
+		<property name="driverClassName" value="com.mysql.jdbc.Driver" />
+		<property name="url" value="${game.url}" />
+		<property name="username" value="${game.username}" />
+		<property name="password" value="${game.password}" />
+	</bean>
+	<bean id="gameSqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+		<property name="mapperLocations" value="classpath:mapping/login/*.xml" />
+		<property name="dataSource" ref="gameDataSource" />
+	</bean>
+	<bean id="gameDataDao" class="org.mybatis.spring.mapper.MapperFactoryBean">
+		<property name="mapperInterface" value="com.rafo.weixin.dao.GameDataDao"></property>
+		<property name="sqlSessionFactory" ref="gameSqlSessionFactory"></property>
+	</bean>
+
+	<bean id="agencyDataSource" class="org.apache.commons.dbcp2.BasicDataSource">
+		<property name="driverClassName" value="com.mysql.jdbc.Driver" />
+		<property name="url" value="${agency.url}" />
+		<property name="username" value="${agency.username}" />
+		<property name="password" value="${agency.password}" />
+	</bean>
+	<bean id="agencySqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+		<property name="dataSource" ref="agencyDataSource" />
+		<property name="mapperLocations" value="classpath:mapping/agency/*.xml" />
+	</bean>
+
+	<bean id="payOrderDao" class="org.mybatis.spring.mapper.MapperFactoryBean">
+		<property name="mapperInterface" value="com.rafo.weixin.dao.PayOrderDao"></property>
+		<property name="sqlSessionFactory" ref="agencySqlSessionFactory"></property>
+	</bean>
+
+	<bean id="accountDao" class="org.mybatis.spring.mapper.MapperFactoryBean">
+		<property name="mapperInterface" value="com.rafo.weixin.dao.AccountDao"></property>
+		<property name="sqlSessionFactory" ref="agencySqlSessionFactory"></property>
+	</bean>
+
+	<bean id="bindDao" class="org.mybatis.spring.mapper.MapperFactoryBean">
+		<property name="mapperInterface" value="com.rafo.weixin.dao.BindDao"></property>
+		<property name="sqlSessionFactory" ref="agencySqlSessionFactory"></property>
+	</bean>
+
+
+	<bean id="gmDataSource" class="org.apache.commons.dbcp2.BasicDataSource">
+		<property name="driverClassName" value="com.mysql.jdbc.Driver" />
+		<property name="url" value="${gm.url}" />
+		<property name="username" value="${gm.username}" />
+		<property name="password" value="${gm.password}" />
+	</bean>
+	<bean id="gmSqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+		<property name="mapperLocations">
+			<list>
+				<value>classpath:mapping/gm/*.xml</value>
+			</list>
+		</property>
+		<property name="dataSource" ref="gmDataSource" />
+	</bean>
+	<bean id="gmProductDao" class="org.mybatis.spring.mapper.MapperFactoryBean">
+		<property name="mapperInterface" value="com.rafo.weixin.dao.GMProductDao"></property>
+		<property name="sqlSessionFactory" ref="gmSqlSessionFactory"></property>
+	</bean>
+	<bean id="gmAgencyCardDao" class="org.mybatis.spring.mapper.MapperFactoryBean">
+		<property name="mapperInterface" value="com.rafo.weixin.dao.GMAgencyCardDao"></property>
+		<property name="sqlSessionFactory" ref="gmSqlSessionFactory"></property>
+	</bean>-->
+
+</beans>
