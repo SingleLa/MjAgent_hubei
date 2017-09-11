@@ -1,0 +1,16 @@
+*.class
+
+# Intellij idea
+*.iml
+.idea
+.xml/*
+
+# Package Files #
+target/*
+out/*
+web/WEB-INF/classes/*
+*.war
+*.ear
+/build/
+*.jar
+/target/
