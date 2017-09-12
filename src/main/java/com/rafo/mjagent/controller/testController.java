@@ -18,6 +18,6 @@ public class testController {
         Map m = new HashedMap();
         m.put("test","你好");
         model.addAttribute("m",m);
-      return "index";
+      return "index.jsp";
     }
 }
