@@ -1,4 +1,4 @@
-package com.rafo.mjagent.model;
+package com.rafo.mjagent.model.agency;
 
 import java.util.List;
 

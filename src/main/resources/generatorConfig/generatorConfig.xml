@@ -13,7 +13,7 @@
         </commentGenerator>
         <!--数据库连接的信息：驱动类、连接地址、用户名、密码 -->
         <jdbcConnection driverClass="com.mysql.jdbc.Driver"
-                        connectionURL="jdbc:mysql://127.0.0.1:3306/hubei_agent?useUnicode=true&amp;characterEncoding=utf-8" userId="root"
+                        connectionURL="jdbc:mysql://127.0.0.1:3306/agent_patch?useUnicode=true&amp;characterEncoding=utf-8" userId="root"
                         password="123">
         </jdbcConnection>
         <!-- 默认false，把JDBC DECIMAL 和 NUMERIC 类型解析为 Integer，为 true时把JDBC DECIMAL 和
@@ -41,14 +41,14 @@
         </sqlMapGenerator>
         <!-- targetPackage：mapper接口生成的位置-->
         <javaClientGenerator type="XMLMAPPER"
-                             targetPackage="com.rafo.mjagent.mapper.agent"
+                             targetPackage="com.rafo.mjagent.mapper.agency"
                              targetProject="src/main/java">
             <!-- enableSubPackages:是否让schema作为包的后缀-->
             <property name="enableSubPackages" value="false" />
         </javaClientGenerator>
         <!-- 指定数据库表 -->
 
-        <table tableName="menu" domainObjectName="Menu"
+        <table tableName="agency_cash_log" domainObjectName="AgencyCashLog"
                enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false"
                enableSelectByExample="false" selectByExampleQueryId="false">
 

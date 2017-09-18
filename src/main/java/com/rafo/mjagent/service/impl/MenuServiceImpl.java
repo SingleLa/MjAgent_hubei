@@ -1,12 +1,11 @@
 package com.rafo.mjagent.service.impl;
 
-import com.rafo.mjagent.mapper.agent.MenuMapper;
-import com.rafo.mjagent.model.Menu;
+import com.rafo.mjagent.mapper.agency.MenuMapper;
+import com.rafo.mjagent.model.agency.Menu;
 import com.rafo.mjagent.service.MenuService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
 

@@ -1,7 +1,6 @@
 package com.rafo.mjagent.service;
 
-import com.rafo.mjagent.mapper.agent.MenuMapper;
-import com.rafo.mjagent.model.Menu;
+import com.rafo.mjagent.model.agency.Menu;
 
 import java.util.List;
 

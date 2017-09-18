@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.rafo.mjagent.mapper.agency.MenuMapper" >
+  <resultMap id="BaseResultMap" type="com.rafo.mjagent.model.agency.Menu" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="title" property="title" jdbcType="VARCHAR" />
+    <result column="level" property="level" jdbcType="INTEGER" />
+    <result column="icon" property="icon" jdbcType="VARCHAR" />
+    <result column="spread" property="spread" jdbcType="BIT" />
+    <result column="index" property="index" jdbcType="INTEGER" />
+    <result column="parents" property="parents" jdbcType="INTEGER" />
+    <result column="href" property="href" jdbcType="INTEGER" />
+    <result column="active" property="active" jdbcType="BIT" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, title, level, icon, spread, `index`, parents,href,active
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from menu
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <select id="selectByLevel" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select
+    <include refid="Base_Column_List" />
+    from menu
+    where
+    level = #{level,jdbcType=INTEGER}
+    and active = 1
+  </select>
+
+  <select id="selectByMene" resultMap="BaseResultMap" parameterType="com.rafo.mjagent.model.agency.Menu" >
+    select
+    <include refid="Base_Column_List" />
+    from menu
+    where
+    1=1
+    <if test="title != null" >
+     and title = #{title,jdbcType=VARCHAR}
+    </if>
+    <if test="level != null" >
+      and  level = #{level,jdbcType=INTEGER}
+    </if>
+    <if test="icon != null" >
+      and icon = #{icon,jdbcType=VARCHAR}
+    </if>
+    <if test="spread != null" >
+      and  spread = #{spread,jdbcType=BIT}
+    </if>
+    <if test="index != null" >
+      and  index = #{index,jdbcType=INTEGER}
+    </if>
+    <if test="parents != null" >
+      and parents = #{parents,jdbcType=INTEGER}
+    </if>
+    <if test="href != null" >
+      and href = #{href,jdbcType=VARCHAR}
+    </if>
+    <if test="active != null" >
+      and active = #{active,jdbcType=BIT}
+    </if>
+  </select>
+
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from menu
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.rafo.mjagent.model.agency.Menu" >
+    insert into menu (id, title, level, 
+      icon, spread, index, parents,href,active
+      )
+    values (#{id,jdbcType=INTEGER}, #{title,jdbcType=VARCHAR}, #{level,jdbcType=INTEGER}, 
+      #{icon,jdbcType=VARCHAR}, #{spread,jdbcType=BIT}, #{index,jdbcType=INTEGER}, #{parents,jdbcType=INTEGER}
+      , #{href,jdbcType=VARCHAR}, #{active,jdbcType=BIT}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.rafo.mjagent.model.agency.Menu" >
+    insert into menu
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="title != null" >
+        title,
+      </if>
+      <if test="level != null" >
+        level,
+      </if>
+      <if test="icon != null" >
+        icon,
+      </if>
+      <if test="spread != null" >
+        spread,
+      </if>
+      <if test="index != null" >
+        index,
+      </if>
+      <if test="parents != null" >
+        parents,
+      </if>
+      <if test="href != null" >
+        href,
+      </if>
+      <if test="active != null" >
+        active,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="title != null" >
+        #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="level != null" >
+        #{level,jdbcType=INTEGER},
+      </if>
+      <if test="icon != null" >
+        #{icon,jdbcType=VARCHAR},
+      </if>
+      <if test="spread != null" >
+        #{spread,jdbcType=BIT},
+      </if>
+      <if test="index != null" >
+        #{index,jdbcType=INTEGER},
+      </if>
+      <if test="parents != null" >
+        #{parents,jdbcType=INTEGER},
+      </if>
+      <if test="href != null" >
+        #{href,jdbcType=VARCHAR},
+      </if>
+      <if test="active != null" >
+        #{active,jdbcType=BIT},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.rafo.mjagent.model.agency.Menu" >
+    update menu
+    <set >
+      <if test="title != null" >
+        title = #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="level != null" >
+        level = #{level,jdbcType=INTEGER},
+      </if>
+      <if test="icon != null" >
+        icon = #{icon,jdbcType=VARCHAR},
+      </if>
+      <if test="spread != null" >
+        spread = #{spread,jdbcType=BIT},
+      </if>
+      <if test="index != null" >
+        index = #{index,jdbcType=INTEGER},
+      </if>
+      <if test="parents != null" >
+        parents = #{parents,jdbcType=INTEGER},
+      </if>
+      <if test="href != null" >
+        href = #{href,jdbcType=VARCHAR},
+      </if>
+      <if test="active != null" >
+        active = #{active,jdbcType=BIT},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.rafo.mjagent.model.agency.Menu" >
+    update menu
+    set title = #{title,jdbcType=VARCHAR},
+      level = #{level,jdbcType=INTEGER},
+      icon = #{icon,jdbcType=VARCHAR},
+      spread = #{spread,jdbcType=BIT},
+      index = #{index,jdbcType=INTEGER},
+      parents = #{parents,jdbcType=INTEGER},
+      href = #{href,jdbcType=VARCHAR},
+      active = #{active,jdbcType=BIT}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

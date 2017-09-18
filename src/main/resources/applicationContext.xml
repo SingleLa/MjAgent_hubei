@@ -52,7 +52,7 @@
 		<property name="mapperLocations" value="classpath:mapping/agency/*.xml" />
 	</bean>
 	<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
-		<property name="basePackage" value="com.rafo.mjagent.mapper.agent"></property>
+		<property name="basePackage" value="com.rafo.mjagent.mapper.agency"></property>
 		<property name="sqlSessionFactoryBeanName" value="agencySqlSessionFactory"/>
 	</bean>
 

@@ -1,6 +1,6 @@
 package com.rafo.mjagent.controller;
 
-import com.rafo.mjagent.model.Menu;
+import com.rafo.mjagent.model.agency.Menu;
 import com.rafo.mjagent.service.MenuService;
 import org.apache.commons.collections.map.HashedMap;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,15 +21,20 @@ public class MenuController {
     MenuService menuService;
     @RequestMapping("/getMenu.do")
     @ResponseBody
-    public List<Menu> test(Model model){
+    public List<Menu> test(Model model,Integer id){
         List<Menu> menu  = menuService.loadMenu();
         return menu;
     }
 
     @RequestMapping("/getMenuAll.do")
     @ResponseBody
-    public List<Menu> getMenuAll(Model model){
+    public Map<String,Object>  getMenuAll(Model model){
         List<Menu> menu  = menuService.getAll();
-        return menu;
+        Map<String,Object> res = new HashedMap();
+        res.put("rel",true);
+        res.put("msg","获取成功");
+        res.put("list",menu);
+        res.put("count",menu.size());
+        return res;
     }
 }
