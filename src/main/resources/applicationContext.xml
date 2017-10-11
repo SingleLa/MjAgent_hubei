@@ -80,4 +80,6 @@
 		<property name="sqlSessionFactory" ref="gmSqlSessionFactory"></property>
 	</bean>-->
 
+
+
 </beans>
